@@ -1,0 +1,27 @@
+---
+- hosts: '{{ group }}'
+  become_user: root
+  become: true
+  tasks:
+	- name: install qemu-kvm package and libvirt
+	  apt: name:kvm-qemu update_cache=yes state=latest
+	  apt: name:libvirt-bin update_cache=yes state=latest
+	
+	- name: Install virt-manager
+	  apt: name:virt-manager update_cache=yes state=latest
+	
+	- name: Display VMs running #should run without error
+	  virt: command=list_vms
+	  register: vm_list
+
+	- name: Create a VM
+	  command: virt-install -n '{{ vm_name }}' -r '{{ vm_ram }}' \
+		   --disk path=/var/lib/libvirt/images/ '{{ vm_name }}'.img,bus=virtio, size= '{{ vm_storage }}' -c \
+		   --location= '{{ vm_url }}' --network network=default,model=virtio \
+		   --os-type= '{{vm_os_type}}' --os-variant= '{{vm_os_variant}}' \ 
+		   --graphics vnc,listen=0.0.0.0 --noautoconsole -v
+	  when: '{{vm_name}}' not in vm_list.list_vms
+
+	- name: start all VMs
+	  virt: name= '{{ vm_name }}' command=start  
+...
