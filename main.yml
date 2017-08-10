@@ -3,7 +3,7 @@
   become_user: root
   become: true
   tasks:
-	- name: install qemu-kvm package and libvirt
+     - name: install qemu-kvm package and libvirt
 	  apt: name:kvm-qemu update_cache=yes state=latest
 	  apt: name:libvirt-bin update_cache=yes state=latest
 	
