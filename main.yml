@@ -18,8 +18,8 @@
        command: virt-install -n '{{ vm_name }}' -r '{{ vm_ram }}' \
                 --disk path=/var/lib/libvirt/images/ '{{ vm_name }}'.img,bus=virtio, size= '{{ vm_storage }}' -c \
                 --location= '{{ vm_url }}' --network network=default,model=virtio \
-		--os-type= '{{vm_os_type}}' --os-variant= '{{vm_os_variant}}' \ 
-		--graphics vnc,listen=0.0.0.0 --noautoconsole -v
+                --os-type= '{{vm_os_type}}' --os-variant= '{{vm_os_variant}}' \ 
+                --graphics vnc,listen=0.0.0.0 --noautoconsole -v
        when: '{{vm_name}}' not in vm_list.list_vms
 
      - name: start all VMs
