@@ -16,7 +16,7 @@ This repository consists of the following:
 Once the script is executed, it will perform the following operations:
 1. Ask for the number of bare-metal machines on which the VMs have to be provisioned, along with their IP address
 2. For each machine, it will ask for the number of VMs to be spawned 
-3. It will then ask for the specifications of the VM to be spawned, e.g. Ram, Storage, OS, etc.
+3. It will then ask for the specifications of each VM to be spawned, e.g. Ram, Storage, OS, etc.
 4. The script will then call Ansible Playbook <code>main.yml</code> to spawn and start the VM
 
 __Note:__ The script assumes that the user has already downloaded the VM image on the remote machine(s), the directory location of which it will ask.
