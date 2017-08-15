@@ -1,5 +1,5 @@
-# Provision-VMs-Ansible-Playbook-Bash
-Automated provisioning and spawning of Virtual Machines (VMs) on Remote Linux machines using a Bash Script and Ansible Playbook
+# Automating VM Provisioning
+Automated provisioning aBashnd spawning of Virtual Machines (VMs) on Remote Linux machines using a Bash Script and Ansible Playbook
 
 # About
 This repository consists of the following:
