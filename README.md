@@ -19,4 +19,4 @@ Once the script is executed, it will perform the following operations:
 3. It will then ask for the specifications of the VM to be spawned, e.g. Ram, Storage, OS, etc.
 4. The script will then call Ansible Playbook <code>main.yml</code> to spawn and start the VM
 
-__Note:__ The script assumes that the user has already downloaded the VM image on the remote machines, the directory location of which it will ask.
+__Note:__ The script assumes that the user has already downloaded the VM image on the remote machine(s), the directory location of which it will ask.
